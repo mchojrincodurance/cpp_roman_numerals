@@ -6,6 +6,10 @@ using namespace std;
 string convert(int arabic) {
     string roman;
 
+    if (arabic == 5) {
+        return "V";
+    }
+
     for (int i = 0; i < arabic; i++) {
         roman += "I";
     }

@@ -1,43 +1,19 @@
 #include <gtest/gtest.h>
-#include <forward_list>
 #include "RomanNumeralsSuite.h"
+#include "RomanNumeralsConverter.h"
 
 using namespace std;
 
-forward_list<tuple<int, string>> arabic2roman = {
-        make_tuple(1000, "M")
-        , make_tuple(900, "CM")
-        , make_tuple(500, "D")
-        , make_tuple(400, "CD")
-        , make_tuple(100, "C")
-        , make_tuple(90, "XC")
-        , make_tuple(50, "L")
-        , make_tuple(40, "XL")
-        , make_tuple(10, "X")
-        , make_tuple(9, "IX")
-        , make_tuple(5, "V")
-        , make_tuple(4, "IV")
-        , make_tuple(1, "I")
-};
-
-string convert(int arabic) {
-    string roman;
-
-    for (auto &it: arabic2roman) {
-        while (arabic >= get<0>(it)) {
-            roman += get<1>(it);
-            arabic -= get<0>(it);
-        }
-    }
-
-    return roman;
-}
-
 TEST_P(RomanNumeralsSuite, convert_arabic_numbers_into_roman_numerals) {
     tuple<int, string> param = GetParam();
-    EXPECT_EQ(convert(get<0>(param)), get<1>(param))
-                        << "I was expecting '" << get<1>(param) << "' but got '" << convert(get<0>(param))
-                        << "' instead";
+
+    auto * converter = new RomanNumeralsConverter();
+
+    int &arabic = get<0>(param);
+    const string &actual = converter->convert(arabic);
+    const string &expected = get<1>(param);
+
+    EXPECT_EQ(actual, expected) << "I was expecting '" << expected << "' but got '" << actual << "' instead";
 }
 
 INSTANTIATE_TEST_SUITE_P(

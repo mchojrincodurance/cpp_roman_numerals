@@ -5,7 +5,9 @@ set(CMAKE_CXX_STANDARD 17)
 
 add_executable(roman_numerals main.cpp
         RomanNumeralsSuite.cc
-        RomanNumeralsSuite.h)
+        RomanNumeralsSuite.h
+        RomanNumeralsConverter.cc
+        RomanNumeralsConverter.h)
 
 include(FetchContent)
 FetchContent_Declare(

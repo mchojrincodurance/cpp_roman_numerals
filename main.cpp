@@ -7,6 +7,11 @@ string convert(int arabic) {
     string roman;
     int start;
 
+    if (arabic == 10) {
+
+        return "X";
+    }
+
     if (arabic < 5) {
         start = 0;
         roman = "";

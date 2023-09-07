@@ -7,17 +7,17 @@ string convert(int arabic) {
     string roman;
     int start;
 
-    if (arabic == 10) {
-
-        return "X";
-    }
-
-    if (arabic < 5) {
-        start = 0;
-        roman = "";
+    if (arabic >= 10 ) {
+        roman = "X";
+        start = 10;
     } else {
-        start = 5;
-        roman = "V";
+        if (arabic >= 5) {
+            start = 5;
+            roman = "V";
+        } else {
+            start = 0;
+            roman = "";
+        }
     }
 
     for (int i = start; i < arabic; i++) {

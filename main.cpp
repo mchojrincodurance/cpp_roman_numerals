@@ -42,5 +42,6 @@ INSTANTIATE_TEST_SUITE_P(
                 ,make_tuple(5, "V")
                 ,make_tuple(6, "VI")
                 ,make_tuple(10, "X")
+                ,make_tuple(11, "XI")
         )
 );

@@ -42,6 +42,7 @@ INSTANTIATE_TEST_SUITE_P(
                 make_tuple(1, "I")
                 , make_tuple(2, "II")
                 , make_tuple(3, "III")
+                , make_tuple(4, "IV")
                 , make_tuple(5, "V")
                 , make_tuple(6, "VI")
                 , make_tuple(10, "X")

@@ -4,6 +4,11 @@
 using namespace std;
 
 string convert(int arabic) {
+    if (arabic >= 50) {
+
+        return "L" + convert(arabic - 50);
+    }
+
     if (arabic >= 10) {
 
         return "X" + convert(arabic - 10);

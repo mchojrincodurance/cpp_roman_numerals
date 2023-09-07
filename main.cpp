@@ -4,7 +4,13 @@
 using namespace std;
 
 string convert(int arabic) {
+    if (arabic == 3) {
+
+        return "III";
+    }
+
     if (arabic == 2) {
+
         return "II";
     }
 

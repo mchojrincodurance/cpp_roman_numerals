@@ -5,22 +5,20 @@ using namespace std;
 
 string convert(int arabic) {
     string roman;
-    int start;
 
     if (arabic >= 10 ) {
         roman = "X";
-        start = 10;
+        arabic -= 10;
     } else {
         if (arabic >= 5) {
-            start = 5;
             roman = "V";
+            arabic -= 5;
         } else {
-            start = 0;
             roman = "";
         }
     }
 
-    for (int i = start; i < arabic; i++) {
+    for (int i = 0; i < arabic; i++) {
         roman += "I";
     }
 

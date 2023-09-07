@@ -5,16 +5,18 @@ using namespace std;
 
 string convert(int arabic) {
     string roman;
+    int start;
 
     if (arabic < 5) {
-        for (int i = 0; i < arabic; i++) {
-            roman += "I";
-        }
+        start = 0;
+        roman = "";
     } else {
+        start = 5;
         roman = "V";
-        for (int i = 5; i < arabic; i++) {
-            roman += "I";
-        }
+    }
+
+    for (int i = start; i < arabic; i++) {
+        roman += "I";
     }
 
     return roman;

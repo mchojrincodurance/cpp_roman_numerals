@@ -1,4 +1,5 @@
 #include <gtest/gtest.h>
+#include "RomanNumeralsSuite.h"
 
 using namespace std;
 
@@ -6,7 +7,12 @@ string convert(int arabic) {
     return "";
 }
 
-TEST(ConverterShould, convert_single_digit_numbers_to_roman)
+TEST_P(RomanNumeralsSuite, convert_arabic_numbers_into_roman_numerals)
 {
-    EXPECT_EQ(convert(1), "I");
+    std::tuple<int, std::string> param = GetParam();
+    EXPECT_EQ(convert(std::get<0>(param)), std::get<1>(param));
 }
+
+INSTANTIATE_TEST_SUITE_P(MeenyMinyMoe,
+                         RomanNumeralsSuite,
+                         testing::Values(std::make_tuple(1, "I")));

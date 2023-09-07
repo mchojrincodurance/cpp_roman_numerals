@@ -22,6 +22,6 @@ INSTANTIATE_TEST_SUITE_P(
         testing::Values(
                 make_tuple(1, "I")
                 ,make_tuple(2, "II")
-//                ,make_tuple(3, "III")
+                ,make_tuple(3, "III")
         )
 );

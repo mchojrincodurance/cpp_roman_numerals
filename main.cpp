@@ -1,28 +1,28 @@
 #include <gtest/gtest.h>
 #include "RomanNumeralsSuite.h"
 
+#define THRESHOLDS 7
+
 using namespace std;
 
+tuple<int, string> arabic2roman[THRESHOLDS] = {
+        make_tuple(1000, "M")
+        , make_tuple(500, "D")
+        , make_tuple(100, "C")
+        , make_tuple(50, "L")
+        , make_tuple(10, "X")
+        , make_tuple(5, "V")
+        , make_tuple(1, "I")
+};
+
 string convert(int arabic) {
-    if (arabic >= 50) {
+    string roman;
 
-        return "L" + convert(arabic - 50);
-    }
-
-    if (arabic >= 10) {
-
-        return "X" + convert(arabic - 10);
-    }
-
-    if (arabic >= 5) {
-
-        return "V" + convert(arabic - 5);
-    }
-
-    string roman = "";
-
-    for (int i = 1; i <= arabic; i++) {
-        roman += "I";
+    for(int i = 0; i < THRESHOLDS; i++) {
+        while (arabic >= get<0>(arabic2roman[i])){
+            roman += get<1>(arabic2roman[i]);
+            arabic -= get<0>(arabic2roman[i]);
+        }
     }
 
     return roman;

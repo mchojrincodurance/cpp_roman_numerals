@@ -4,17 +4,13 @@
 using namespace std;
 
 string convert(int arabic) {
-    if (arabic == 3) {
+    string roman;
 
-        return "III";
+    for (int i = 0; i < arabic; i++) {
+        roman += "I";
     }
 
-    if (arabic == 2) {
-
-        return "II";
-    }
-
-    return "I";
+    return roman;
 }
 
 TEST_P(RomanNumeralsSuite, convert_arabic_numbers_into_roman_numerals) {
